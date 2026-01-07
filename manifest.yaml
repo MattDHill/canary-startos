@@ -1,8 +1,8 @@
 id: canary
 title: Canary
-version: 1.2.0
+version: 1.3.0
 release-notes: |
-  Initial release for StartOS
+  Added support for 8 new languages (Norwegian, Spanish, Portuguese, German, French, Japanese, Danish, Swedish) with full UI and notification translations. Improved contact modal UX and wallet syncing display.
   * Bitcoin wallet monitoring with transaction notifications
   * Support for multipath descriptors (P2WPKH, P2SH, P2TR, P2PKH)
   * Dedicated wallet wizard for easy onboarding
@@ -124,7 +124,7 @@ migrations:
       type: docker
       image: main
       entrypoint: /bin/bash
-      args: ["-c", "exit 0"]
+      args: ["-c", "echo '{\"configured\": true}'"]
       io-format: json
       mounts:
         main: /app/data
@@ -133,7 +133,7 @@ migrations:
       type: docker
       image: main
       entrypoint: /bin/bash
-      args: ["-c", "exit 0"]
+      args: ["-c", "echo '{\"configured\": true}'"]
       io-format: json
       mounts:
         main: /app/data
