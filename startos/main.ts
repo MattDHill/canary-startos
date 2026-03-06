@@ -1,4 +1,5 @@
 import { storeJson } from './fileModels/store.json'
+import { i18n } from './i18n'
 import { sdk } from './sdk'
 import { serverPort, uiPort } from './utils'
 
@@ -52,8 +53,8 @@ export const main = sdk.setupMain(async ({ effects }) => {
             effects,
             `http://localhost:${serverPort}/api/block-headers/current`,
             {
-              successMessage: 'The server is ready',
-              errorMessage: 'The server is not ready',
+              successMessage: i18n('The server is ready'),
+              errorMessage: i18n('The server is not ready'),
             },
           ),
       },
@@ -73,11 +74,11 @@ export const main = sdk.setupMain(async ({ effects }) => {
         },
       },
       ready: {
-        display: 'Web interface',
+        display: i18n('Web interface'),
         fn: () =>
           sdk.healthCheck.checkPortListening(effects, uiPort, {
-            successMessage: 'The web interface is ready',
-            errorMessage: 'The web interface is not ready',
+            successMessage: i18n('The web interface is ready'),
+            errorMessage: i18n('The web interface is not ready'),
           }),
       },
       requires: [],

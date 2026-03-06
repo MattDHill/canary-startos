@@ -1,5 +1,6 @@
 import { selectElectrum } from './actions/selectElectrum'
 import { storeJson } from './fileModels/store.json'
+import { i18n } from './i18n'
 import { sdk } from './sdk'
 
 export const setDependencies = sdk.setupDependencies(async ({ effects }) => {
@@ -9,7 +10,7 @@ export const setDependencies = sdk.setupDependencies(async ({ effects }) => {
     return {
       fulcrum: {
         kind: 'running',
-        versionRange: '>=2.1.0:3-beta.1',
+        versionRange: '>=2.1.0:5-beta.0',
         healthChecks: ['primary', 'sync-progress'],
       },
     }
@@ -17,13 +18,13 @@ export const setDependencies = sdk.setupDependencies(async ({ effects }) => {
     return {
       electrs: {
         kind: 'running',
-        versionRange: '>=0.11.0:1-beta.1',
+        versionRange: '>=0.11.1:0-beta.0',
         healthChecks: ['electrs', 'sync'],
       },
     }
   } else {
     await sdk.action.createOwnTask(effects, selectElectrum, 'critical', {
-      reason: 'Canary requires an Electrum server to look up addresses',
+      reason: i18n('Canary requires an Electrum server to look up addresses'),
     })
     return {}
   }
