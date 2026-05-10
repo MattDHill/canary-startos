@@ -19,6 +19,14 @@ const dict = {
   'Select Electrum Server': 23,
   'Select which Electrum server to use for address lookups': 24,
 
+  // actions/showLoginCredentials.ts
+  'Show Login Credentials': 25,
+  'Reveal the Canary admin username and password': 26,
+  'Canary Login Credentials': 27,
+  'Use these credentials to sign in to Canary.': 28,
+  Username: 29,
+  Password: 31,
+
   // dependencies.ts
   'Canary requires an Electrum server to look up addresses': 30,
 } as const

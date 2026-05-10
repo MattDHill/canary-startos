@@ -6,6 +6,8 @@ const shape = z.object({
     .enum(['fulcrum', 'electrs'])
     .nullable()
     .catch(null),
+  adminPassword: z.string().optional().catch(undefined),
+  jwtSecret: z.string().optional().catch(undefined),
 })
 
 export const storeJson = FileHelper.json(
