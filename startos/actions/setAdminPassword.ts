@@ -1,13 +1,16 @@
-import { ensureCredentials } from '../credentials'
+import { utils } from '@start9labs/start-sdk'
+import { storeJson } from '../fileModels/store.json'
 import { i18n } from '../i18n'
 import { sdk } from '../sdk'
 
-export const showLoginCredentials = sdk.Action.withoutInput(
-  'show-login-credentials',
+export const setAdminPassword = sdk.Action.withoutInput(
+  'set-admin-password',
 
-  async ({ effects }) => ({
-    name: i18n('Show Login Credentials'),
-    description: i18n('Reveal the Canary admin username and password'),
+  async () => ({
+    name: i18n('Set Admin Password'),
+    description: i18n(
+      'Generate a new random password for the Canary admin account. This replaces any existing password.',
+    ),
     warning: null,
     allowedStatuses: 'any',
     group: null,
@@ -15,7 +18,11 @@ export const showLoginCredentials = sdk.Action.withoutInput(
   }),
 
   async ({ effects }) => {
-    const credentials = await ensureCredentials(effects)
+    const adminPassword = utils.getDefaultString({
+      charset: 'a-z,A-Z,0-9',
+      len: 32,
+    })
+    await storeJson.merge(effects, { adminPassword })
 
     return {
       version: '1',
@@ -25,22 +32,22 @@ export const showLoginCredentials = sdk.Action.withoutInput(
         type: 'group',
         value: [
           {
+            type: 'single',
             name: i18n('Username'),
             description: null,
-            type: 'single',
             value: 'admin@local',
+            masked: false,
             copyable: true,
             qr: false,
-            masked: false,
           },
           {
+            type: 'single',
             name: i18n('Password'),
             description: null,
-            type: 'single',
-            value: credentials.adminPassword,
+            value: adminPassword,
+            masked: true,
             copyable: true,
             qr: false,
-            masked: true,
           },
         ],
       },

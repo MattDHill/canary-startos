@@ -9,7 +9,7 @@ export const manifest = setupManifest({
   upstreamRepo: 'https://github.com/schjonhaug/canary/',
   marketingUrl: 'https://canarybitcoin.com',
   docsUrls: [
-    'https://github.com/schjonhaug/canary-startos/blob/master/instructions.md',
+    'https://github.com/schjonhaug/canary-startos/blob/master/docs/instructions.md',
   ],
   donationUrl: 'https://canarybitcoin.com/donations',
   description: { short, long },
