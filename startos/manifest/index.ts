@@ -9,7 +9,7 @@ export const manifest = setupManifest({
   upstreamRepo: 'https://github.com/schjonhaug/canary/',
   marketingUrl: 'https://canarybitcoin.com',
   docsUrls: [
-    'https://github.com/schjonhaug/canary-startos/blob/master/instructions.md',
+    'https://github.com/schjonhaug/canary-startos/blob/master/docs/instructions.md',
   ],
   donationUrl: 'https://canarybitcoin.com/donations',
   description: { short, long },
@@ -17,12 +17,12 @@ export const manifest = setupManifest({
   images: {
     frontend: {
       source: {
-        dockerTag: 'schjonhaug/canary-frontend:v1.4.0',
+        dockerTag: 'schjonhaug/canary-frontend:v1.5.0',
       },
     },
     backend: {
       source: {
-        dockerTag: 'schjonhaug/canary-backend:v1.4.0',
+        dockerTag: 'schjonhaug/canary-backend:v1.5.0',
       },
     },
   },

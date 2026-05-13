@@ -4,23 +4,23 @@ Canary is a self-hosted Bitcoin wallet monitoring service that helps you keep tr
 
 ## Getting Started
 
-### 1. Configure Electrum Server
+### 1. Choose Your Electrum Server
 
-By default, Canary uses your local **Electrs** service for blockchain data. This is the recommended option for privacy.
+Canary looks up your wallet addresses through a local Electrum server running on your StartOS — **Fulcrum** or **Electrs**. Both keep your addresses private; nothing leaves your server.
 
-If you don't have Electrs installed:
+1. If you don't already have one, install **Fulcrum** or **Electrs** from the Marketplace and wait for it to sync with the blockchain (this can take several hours on first run)
+2. Use the **Select Electrum Server** action to choose which one Canary uses (it defaults to Fulcrum)
 
-1. Go to the Marketplace and install **Electrs**
-2. Wait for Electrs to sync with the blockchain (this may take several hours on first run)
-
-Alternatively, you can configure an external Electrum server in Settings, but this may expose your wallet addresses to third parties.
+StartOS prompts you with a task to do this before Canary will start.
 
 ### 2. Access the Web Interface
 
-1. Click on **Interfaces** in the service details
-2. Choose either:
+1. Run the **Set Admin Password** action and copy the generated password (StartOS prompts you with a task to do this on first install)
+2. Click on **Interfaces** in the service details
+3. Choose either:
    - **Tor Address** - Access via Tor Browser (more private, but slower)
    - **LAN Address** - Access from your local network (faster, requires HTTPS certificate acceptance)
+4. Sign in with username `admin@local` and that password
 
 ### 3. Add Your First Wallet
 
@@ -67,13 +67,13 @@ Canary supports notifications in:
 
 - **Watch-Only**: Canary only uses your public keys. It cannot spend your Bitcoin.
 - **No Cloud**: All data stays on your StartOS server.
-- **Privacy**: Using local Electrs keeps your wallet addresses private.
+- **Privacy**: Wallet addresses are looked up through your own local Electrum server — they never leave your StartOS.
 
 ## Troubleshooting
 
 ### Wallet Not Syncing
 
-1. Check that Electrs is running and fully synced
+1. Check that your Electrum server (Fulcrum or Electrs) is running and fully synced
 2. Verify your descriptor/xpub is valid
 3. Check the Canary logs for errors
 

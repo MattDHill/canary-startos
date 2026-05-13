@@ -53,7 +53,7 @@ Canary runs as two separate containers: a backend API server and a frontend web 
 
 **Key paths on the `main` volume:**
 
-- `store.json` — StartOS persistent settings (selected Electrum server)
+- `store.json` — StartOS persistent settings (selected Electrum server, auto-generated admin password, auto-generated JWT secret)
 
 ---
 
@@ -63,13 +63,15 @@ Canary runs as two separate containers: a backend API server and a frontend web 
 |------|----------|---------|
 | Installation | Docker Compose | Install from marketplace |
 | Electrum server | Manual configuration | Select via action (Fulcrum or Electrs) |
+| Login | Set via environment | Auto-generated; set/reset via the Set Admin Password action |
 
 **First-run steps:**
 
 1. Install either Fulcrum or Electrs (required for blockchain lookups)
 2. Install Canary from the StartOS marketplace
 3. A **critical task** will prompt you to select your Electrum server (Fulcrum or Electrs) — the service will not start until this is resolved
-4. Access the web UI to add wallets and configure notifications
+4. A **critical task** will prompt you to run **Set Admin Password** — the service will not start until you do; copy the generated password and sign in to the web UI as `admin@local`
+5. Add wallets and configure notifications in the web UI
 
 ---
 
@@ -80,7 +82,8 @@ Canary runs as two separate containers: a backend API server and a frontend web 
 | Electrum server selection (Fulcrum/Electrs) | Wallet management |
 | Network configuration (mainnet) | Notification settings (ntfy.sh) |
 | Sync interval (60 seconds) | Language preferences |
-| Data directory | All other settings via web UI |
+| Admin password (auto-generated) | All other settings via web UI |
+| Data directory | |
 
 **Environment variables set by StartOS:**
 
@@ -91,7 +94,9 @@ Canary runs as two separate containers: a backend API server and a frontend web 
 | `CANARY_BIND_ADDRESS` | `0.0.0.0:3001` | Backend bind address |
 | `CANARY_DATA_DIR` | `/app/data` | Data directory |
 | `CANARY_MODE` | `self-hosted` | Running mode |
+| `CANARY_SELF_HOSTED_ADMIN_PASSWORD` | (auto-generated) | Admin account password |
 | `CANARY_SYNC_INTERVAL` | `60` | Sync interval in seconds |
+| `JWT_SECRET` | (auto-generated) | Session-token signing secret |
 
 ---
 
@@ -123,6 +128,16 @@ Choose which Electrum server to use for address lookups.
 | Availability | Any status |
 | Visibility | Always visible |
 | Inputs | Select: Fulcrum or Electrs |
+
+### Set Admin Password
+
+Generate a new random password for the Canary admin account (`admin@local`). On install a critical task prompts you to run this before the service starts; run it again any time to reset a lost or compromised password — Canary restarts to apply the new one.
+
+| Property | Value |
+|----------|-------|
+| Availability | Any status |
+| Visibility | Always visible (also surfaced as a critical task on install) |
+| Inputs | None |
 
 ---
 
@@ -204,6 +219,7 @@ dependencies:
   - electrs (optional)
 actions:
   - select-electrum
+  - set-admin-password
 health_checks:
   - server: http_check 3001/api/block-headers/current
   - web: port_check 3000
@@ -215,5 +231,7 @@ startos_managed_env_vars:
   - CANARY_BIND_ADDRESS
   - CANARY_DATA_DIR
   - CANARY_MODE
+  - CANARY_SELF_HOSTED_ADMIN_PASSWORD
   - CANARY_SYNC_INTERVAL
+  - JWT_SECRET
 ```

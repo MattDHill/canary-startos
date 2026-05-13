@@ -11,7 +11,11 @@ export const main = sdk.setupMain(async ({ effects }) => {
    */
   console.info('Starting Canary!')
 
-  const electrum = await storeJson.read((s) => s.electrum).const(effects)
+  const store = await storeJson.read().const(effects)
+  if (!store) {
+    throw new Error('No store.json')
+  }
+  const electrum = store.electrum
   const mountpoint = '/app/data'
 
   /**
@@ -42,7 +46,9 @@ export const main = sdk.setupMain(async ({ effects }) => {
           CANARY_BIND_ADDRESS: `0.0.0.0:${serverPort}`,
           CANARY_DATA_DIR: mountpoint,
           CANARY_MODE: 'self-hosted',
+          CANARY_SELF_HOSTED_ADMIN_PASSWORD: store.adminPassword,
           CANARY_SYNC_INTERVAL: '60',
+          JWT_SECRET: store.jwtSecret,
         },
       },
       ready: {

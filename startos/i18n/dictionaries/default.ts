@@ -21,6 +21,17 @@ const dict = {
 
   // dependencies.ts
   'Canary requires an Electrum server to look up addresses': 30,
+
+  // actions/setAdminPassword.ts
+  'Set Admin Password': 40,
+  'Generate a new random password for the Canary admin account. This replaces any existing password.': 41,
+  'Canary Login Credentials': 42,
+  'Use these credentials to sign in to Canary.': 43,
+  Username: 44,
+  Password: 45,
+
+  // init/watchCredentials.ts
+  'Set the admin password before signing in to Canary': 46,
 } as const
 
 /**
