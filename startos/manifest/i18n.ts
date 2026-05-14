@@ -97,3 +97,16 @@ export const bitcoinExplorerDescription = {
   fr_FR:
     'Utilisé pour ouvrir les liens de transaction Canary dans Bitcoin Explorer local',
 }
+
+export const ntfyDescription = {
+  en_US:
+    'Used for local push notifications without manually copying ntfy credentials',
+  es_ES:
+    'Utilizado para notificaciones push locales sin copiar manualmente credenciales de ntfy',
+  de_DE:
+    'Wird für lokale Push-Benachrichtigungen verwendet, ohne ntfy-Zugangsdaten manuell zu kopieren',
+  pl_PL:
+    'Używany do lokalnych powiadomień push bez ręcznego kopiowania poświadczeń ntfy',
+  fr_FR:
+    'Utilisé pour les notifications push locales sans copier manuellement les identifiants ntfy',
+}
