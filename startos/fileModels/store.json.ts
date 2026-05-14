@@ -8,6 +8,14 @@ const shape = z.object({
     .catch(null),
   adminPassword: z.string().optional().catch(undefined),
   jwtSecret: z.string().optional().catch(undefined),
+  ntfy: z
+    .object({
+      publishUrl: z.string(),
+      token: z.string(),
+      topic: z.string(),
+    })
+    .optional()
+    .catch(undefined),
 })
 
 export const storeJson = FileHelper.json(
