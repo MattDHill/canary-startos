@@ -217,6 +217,8 @@ ports:
 dependencies:
   - fulcrum (optional)
   - electrs (optional)
+  - mempool (optional, local transaction explorer links)
+  - bitcoin-explorer (optional, local transaction explorer links)
 actions:
   - select-electrum
   - set-admin-password
@@ -233,5 +235,7 @@ startos_managed_env_vars:
   - CANARY_MODE
   - CANARY_SELF_HOSTED_ADMIN_PASSWORD
   - CANARY_SYNC_INTERVAL
+  - CANARY_MEMPOOL_URLS
+  - CANARY_BTC_RPC_EXPLORER_URLS
   - JWT_SECRET
 ```
