@@ -78,5 +78,9 @@ export async function getLocalExplorerEnv(
     }
   }
 
+  if (Object.keys(env).length > 0) {
+    env.CANARY_TX_EXPLORER_PLATFORM = 'startos'
+  }
+
   return env
 }
