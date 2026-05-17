@@ -5,7 +5,7 @@ export const manifest = setupManifest({
   id: 'canary',
   title: 'Canary',
   license: 'Elastic-2.0',
-  packageRepo: 'https://github.com/schjonhaug/canary-startos',
+  packageRepo: 'https://github.com/Start9-Community/canary-startos',
   upstreamRepo: 'https://github.com/schjonhaug/canary/',
   marketingUrl: 'https://canarybitcoin.com',
   donationUrl: 'https://canarybitcoin.com/donations',
