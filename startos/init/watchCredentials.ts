@@ -5,7 +5,7 @@ import { i18n } from '../i18n'
 import { sdk } from '../sdk'
 
 export const watchCredentials = sdk.setupOnInit(async (effects) => {
-  const store = await storeJson.read().const(effects)
+  const store = await storeJson.read().once()
 
   // Internal session secret — backfill whenever it's missing (fresh install,
   // upgrade from a version that had no login, a manual store edit, …).
