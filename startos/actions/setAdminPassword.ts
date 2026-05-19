@@ -9,10 +9,10 @@ export const setAdminPassword = sdk.Action.withoutInput(
   async () => ({
     name: i18n('Set Admin Password'),
     description: i18n(
-      'Generate a new random password for the Canary admin account. This replaces any existing password.',
+      '<p>Generate a new random password for the Canary admin account.</p><p>This action can only run while Canary is stopped, so the backend loads the new password the next time it starts.</p>',
     ),
     warning: null,
-    allowedStatuses: 'any',
+    allowedStatuses: 'only-stopped',
     group: null,
     visibility: 'enabled',
   }),
