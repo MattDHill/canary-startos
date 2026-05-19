@@ -52,4 +52,4 @@ Set per-wallet thresholds in the Web UI to fire when a balance goes **above**, *
 ### Actions
 
 - **Select Electrum Server** — pick **Fulcrum** or **Electrs** as Canary's address-lookup backend. Re-run any time to switch.
-- **Set Admin Password** — generate a new random password for `admin@local`. Use this to rotate or recover access.
+- **Set Admin Password** — generate a new random password for `admin@local`. Stop Canary before running it to rotate or recover access.
