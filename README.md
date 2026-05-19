@@ -70,7 +70,7 @@ Canary runs as two separate containers: a backend API server and a frontend web 
 1. Install either Fulcrum or Electrs (required for blockchain lookups)
 2. Install Canary from the StartOS marketplace
 3. A **critical task** will prompt you to select your Electrum server (Fulcrum or Electrs) — the service will not start until this is resolved
-4. A **critical task** will prompt you to run **Set Admin Password** — the service will not start until you do; copy the generated password and sign in to the web UI as `admin@local`
+4. A **critical task** will prompt you to run **Set Admin Password** — the service will not start until you do; copy the generated password and sign in to the web UI
 5. Add wallets and configure notifications in the web UI
 
 ---
@@ -131,7 +131,7 @@ Choose which Electrum server to use for address lookups.
 
 ### Set Admin Password
 
-Generate a new random password for the Canary admin account (`admin@local`). On install a critical task prompts you to run this before the service starts; run it again any time to reset a lost or compromised password — Canary restarts to apply the new one.
+Generate a new random password for the Canary admin account. On install a critical task prompts you to run this before the service starts; run it again any time to reset a lost or compromised password — Canary restarts to apply the new one.
 
 | Property | Value |
 |----------|-------|

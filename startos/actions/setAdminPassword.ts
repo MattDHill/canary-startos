@@ -26,20 +26,11 @@ export const setAdminPassword = sdk.Action.withoutInput(
 
     return {
       version: '1',
-      title: i18n('Canary Login Credentials'),
-      message: i18n('Use these credentials to sign in to Canary.'),
+      title: i18n('Canary Admin Password'),
+      message: i18n('Use this password to sign in to Canary.'),
       result: {
         type: 'group',
         value: [
-          {
-            type: 'single',
-            name: i18n('Username'),
-            description: null,
-            value: 'admin@local',
-            masked: false,
-            copyable: true,
-            qr: false,
-          },
           {
             type: 'single',
             name: i18n('Password'),

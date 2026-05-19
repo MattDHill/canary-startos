@@ -9,14 +9,14 @@
 
 - A **Web UI** for Canary on the bundled `ui` interface.
 - A watch-only monitor that looks up your wallets through your own local Electrum server — **Fulcrum** or **Electrs**. Addresses never leave your StartOS.
-- An admin account (`admin@local`) whose password is generated and rotated by a StartOS action.
+- A built-in admin account whose password is generated and rotated by a StartOS action.
 
 ## Getting set up
 
 1. Install **Fulcrum** or **Electrs** on StartOS and let it fully sync. Canary will not start until one is selected and running.
 2. On first install, StartOS posts a critical **Set Admin Password** task. Run it and copy the generated password to a password manager — you'll need it to sign in.
 3. Run the **Select Electrum Server** action and pick which dependency Canary should talk to (defaults to Fulcrum).
-4. Open the **Web UI** and sign in with `admin@local` and the password from step 2.
+4. Open the **Web UI** and sign in with the password from step 2.
 
 ## Using Canary
 
@@ -52,4 +52,4 @@ Set per-wallet thresholds in the Web UI to fire when a balance goes **above**, *
 ### Actions
 
 - **Select Electrum Server** — pick **Fulcrum** or **Electrs** as Canary's address-lookup backend. Re-run any time to switch.
-- **Set Admin Password** — generate a new random password for `admin@local`. Stop Canary before running it to rotate or recover access.
+- **Set Admin Password** — generate a new random password for the built-in admin account. Stop Canary before running it to rotate or recover access.
