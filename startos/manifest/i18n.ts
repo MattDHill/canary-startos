@@ -2,8 +2,7 @@ export const short = {
   en_US: 'Bitcoin wallet monitoring service with transaction notifications',
   es_ES:
     'Servicio de monitoreo de billeteras Bitcoin con notificaciones de transacciones',
-  de_DE:
-    'Bitcoin-Wallet-Überwachungsdienst mit Transaktionsbenachrichtigungen',
+  de_DE: 'Bitcoin-Wallet-Überwachungsdienst mit Transaktionsbenachrichtigungen',
   pl_PL:
     'Usługa monitorowania portfeli Bitcoin z powiadomieniami o transakcjach',
   fr_FR:
@@ -69,10 +68,44 @@ export const fulcrumDescription = {
     'Utilizado para sincronizar datos de billetera desde la cadena de bloques de Bitcoin',
   de_DE:
     'Wird zur Synchronisierung von Wallet-Daten aus der Bitcoin-Blockchain verwendet',
-  pl_PL:
-    'Używany do synchronizacji danych portfela z łańcucha bloków Bitcoin',
+  pl_PL: 'Używany do synchronizacji danych portfela z łańcucha bloków Bitcoin',
   fr_FR:
     'Utilisé pour synchroniser les données du portefeuille depuis la blockchain Bitcoin',
 }
 
 export const electrsDescription = fulcrumDescription
+
+export const mempoolDescription = {
+  en_US: 'Used for opening Canary transaction links in local Mempool',
+  es_ES:
+    'Utilizado para abrir enlaces de transacciones de Canary en Mempool local',
+  de_DE:
+    'Wird zum Öffnen von Canary-Transaktionslinks in lokalem Mempool verwendet',
+  pl_PL: 'Używany do otwierania linków transakcji Canary w lokalnym Mempool',
+  fr_FR:
+    'Utilisé pour ouvrir les liens de transaction Canary dans Mempool local',
+}
+
+export const bitcoinExplorerDescription = {
+  en_US: 'Used for opening Canary transaction links in local Bitcoin Explorer',
+  es_ES:
+    'Utilizado para abrir enlaces de transacciones de Canary en Bitcoin Explorer local',
+  de_DE:
+    'Wird zum Öffnen von Canary-Transaktionslinks in lokalem Bitcoin Explorer verwendet',
+  pl_PL:
+    'Używany do otwierania linków transakcji Canary w lokalnym Bitcoin Explorer',
+  fr_FR:
+    'Utilisé pour ouvrir les liens de transaction Canary dans Bitcoin Explorer local',
+}
+
+export const ntfyDescription = {
+  en_US: 'Used for optional local push notifications with manual ntfy setup',
+  es_ES:
+    'Utilizado para notificaciones push locales opcionales con configuración manual de ntfy',
+  de_DE:
+    'Wird für optionale lokale Push-Benachrichtigungen mit manueller ntfy-Einrichtung verwendet',
+  pl_PL:
+    'Używany do opcjonalnych lokalnych powiadomień push z ręczną konfiguracją ntfy',
+  fr_FR:
+    'Utilisé pour les notifications push locales facultatives avec configuration manuelle de ntfy',
+}

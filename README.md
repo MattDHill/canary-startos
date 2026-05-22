@@ -70,7 +70,7 @@ Canary runs as two separate containers: a backend API server and a frontend web 
 1. Install either Fulcrum or Electrs (required for blockchain lookups)
 2. Install Canary from the StartOS marketplace
 3. A **critical task** will prompt you to select your Electrum server (Fulcrum or Electrs) — the service will not start until this is resolved
-4. A **critical task** will prompt you to run **Set Admin Password** — the service will not start until you do; copy the generated password and sign in to the web UI as `admin@local`
+4. A **critical task** will prompt you to run **Set Admin Password** — the service will not start until you do; copy the generated password and sign in to the web UI
 5. Add wallets and configure notifications in the web UI
 
 ---
@@ -131,7 +131,7 @@ Choose which Electrum server to use for address lookups.
 
 ### Set Admin Password
 
-Generate a new random password for the Canary admin account (`admin@local`). On install a critical task prompts you to run this before the service starts; run it again any time to reset a lost or compromised password — Canary restarts to apply the new one.
+Generate a new random password for the Canary admin account. On install a critical task prompts you to run this before the service starts; run it again any time to reset a lost or compromised password — Canary restarts to apply the new one.
 
 | Property | Value |
 |----------|-------|
@@ -147,8 +147,11 @@ Generate a new random password for the Canary admin account (`admin@local`). On 
 |------------|----------|---------|
 | Fulcrum | Optional (one of) | Electrum server for blockchain lookups |
 | Electrs | Optional (one of) | Electrum server for blockchain lookups |
+| ntfy | Optional | Local push notifications with manual publisher setup |
 
 One of Fulcrum or Electrs must be installed and running. If no Electrum server is selected, a critical task is created at startup blocking the service until resolved.
+
+The ntfy dependency is optional. Current StartOS releases do not return dependency action outputs to dependents, so Canary does not auto-provision ntfy credentials. To use local ntfy, run ntfy's **Provision Publisher** action manually and enter the returned publish URL, token, and topic in Canary settings.
 
 ---
 
@@ -217,6 +220,8 @@ ports:
 dependencies:
   - fulcrum (optional)
   - electrs (optional)
+  - mempool (optional, local transaction explorer links)
+  - bitcoin-explorer (optional, local transaction explorer links)
 actions:
   - select-electrum
   - set-admin-password
@@ -233,5 +238,7 @@ startos_managed_env_vars:
   - CANARY_MODE
   - CANARY_SELF_HOSTED_ADMIN_PASSWORD
   - CANARY_SYNC_INTERVAL
+  - CANARY_MEMPOOL_URLS
+  - CANARY_BTC_RPC_EXPLORER_URLS
   - JWT_SECRET
 ```
