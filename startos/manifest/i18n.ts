@@ -99,14 +99,13 @@ export const bitcoinExplorerDescription = {
 }
 
 export const ntfyDescription = {
-  en_US:
-    'Used for local push notifications without manually copying ntfy credentials',
+  en_US: 'Used for optional local push notifications with manual ntfy setup',
   es_ES:
-    'Utilizado para notificaciones push locales sin copiar manualmente credenciales de ntfy',
+    'Utilizado para notificaciones push locales opcionales con configuración manual de ntfy',
   de_DE:
-    'Wird für lokale Push-Benachrichtigungen verwendet, ohne ntfy-Zugangsdaten manuell zu kopieren',
+    'Wird für optionale lokale Push-Benachrichtigungen mit manueller ntfy-Einrichtung verwendet',
   pl_PL:
-    'Używany do lokalnych powiadomień push bez ręcznego kopiowania poświadczeń ntfy',
+    'Używany do opcjonalnych lokalnych powiadomień push z ręczną konfiguracją ntfy',
   fr_FR:
-    'Utilisé pour les notifications push locales sans copier manuellement les identifiants ntfy',
+    'Utilisé pour les notifications push locales facultatives avec configuration manuelle de ntfy',
 }

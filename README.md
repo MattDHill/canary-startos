@@ -147,8 +147,11 @@ Generate a new random password for the Canary admin account. On install a critic
 |------------|----------|---------|
 | Fulcrum | Optional (one of) | Electrum server for blockchain lookups |
 | Electrs | Optional (one of) | Electrum server for blockchain lookups |
+| ntfy | Optional | Local push notifications with manual publisher setup |
 
 One of Fulcrum or Electrs must be installed and running. If no Electrum server is selected, a critical task is created at startup blocking the service until resolved.
+
+The ntfy dependency is optional. Current StartOS releases do not return dependency action outputs to dependents, so Canary does not auto-provision ntfy credentials. To use local ntfy, run ntfy's **Provision Publisher** action manually and enter the returned publish URL, token, and topic in Canary settings.
 
 ---
 

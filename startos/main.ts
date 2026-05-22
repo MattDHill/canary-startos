@@ -20,7 +20,7 @@ export const main = sdk.setupMain(async ({ effects }) => {
   const electrum = store.electrum
   const mountpoint = '/app/data'
   const localExplorerEnv = await getLocalExplorerEnv(effects)
-  const localNtfyEnv = await getLocalNtfyEnv(effects, store.ntfy)
+  const localNtfyEnv = getLocalNtfyEnv(store.ntfy)
 
   /**
    * ======================== Daemons ========================
